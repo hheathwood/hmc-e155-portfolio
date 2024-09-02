@@ -1,0 +1,24 @@
+---
+title: "E155 Portfolio"
+image: images/portrait.jpg
+about:
+    template: jolla
+    links:
+        - icon: linkedin
+          text: linkedin
+          href: www.linkedin.com/in/henry-heathwood-9a0192176
+
+
+        
+---
+
+Henry Heathwood is an Engineering Student at [Harvey Mudd College](https://hmc.edu).
+His main interests are in the field of engineering, with a spacific focus on electrical and mechanical systems. 
+He is a proctor for the Harvey Mudd Machine Shop, where he guides and teaches students about safe machining practices with machines like CNC mills, metal lathes, and a variety of woodworking machines.
+When he's not in the classroom, machine shop, or studying somehwere on campus, you can find him going rock climbing, listening to new music on vinyl, practicing his bass guitar, or just simply hanging out with friends.
+
+
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
