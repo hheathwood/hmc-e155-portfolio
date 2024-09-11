@@ -9,6 +9,8 @@ website:
         text: Home
       - href: blog.qmd
         text: Blog
+      - href: lab1.qmd
+        text: Lab 1
      
 
 format:
