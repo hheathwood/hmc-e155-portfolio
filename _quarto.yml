@@ -11,6 +11,8 @@ website:
         text: Blog
       - href: lab1.qmd
         text: Lab 1
+      - href: lab2.qmd
+        text: Lab 2
      
 
 format:

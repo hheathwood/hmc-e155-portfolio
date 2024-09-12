@@ -9,3 +9,6 @@ categories:
 draft: false
 ---
 
+# Lab 1 Reflection
+
+This first lab really challended me in MicrpPs. Going into it, I had little to no experince with Git or GitHub. 
