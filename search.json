@@ -7,6 +7,55 @@
     "text": "Hello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 31, 2024\n\n\nHenry Heathwood\n\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "posts/first-post.html",
+    "href": "posts/first-post.html",
+    "title": "Hello Quarto",
+    "section": "",
+    "text": "Lab 1 Reflection\nThis first lab really challended me in MicrpPs. Going into it, I had little to no experince with Git or GitHub."
+  },
+  {
+    "objectID": "labs/lab 2/lab2.html",
+    "href": "labs/lab 2/lab2.html",
+    "title": "Lab 2: Multiplexed 7-Segment Display",
+    "section": "",
+    "text": "In this lab, a design was implemented on the FPGA to create a set of multiplexed seven-segment displays. Two PNP transistors were used to oscillate between the two displays so they could be driven from a single set of GPIO pins."
+  },
+  {
+    "objectID": "labs/lab 2/lab2.html#introduction",
+    "href": "labs/lab 2/lab2.html#introduction",
+    "title": "Lab 2: Multiplexed 7-Segment Display",
+    "section": "",
+    "text": "In this lab, a design was implemented on the FPGA to create a set of multiplexed seven-segment displays. Two PNP transistors were used to oscillate between the two displays so they could be driven from a single set of GPIO pins."
+  },
+  {
+    "objectID": "labs/lab 2/lab2.html#design-and-testing-methodology",
+    "href": "labs/lab 2/lab2.html#design-and-testing-methodology",
+    "title": "Lab 2: Multiplexed 7-Segment Display",
+    "section": "Design and Testing Methodology",
+    "text": "Design and Testing Methodology\nIn order to oscillate between the two displays, the on-board FPGA high-speed oscillator (HSOSC) was used. Additonaly a counter variable was used to reduce the frequency of the signal to a usable level. This signal was then used to control the base signal of two PNP transistors that each controlled the power to one of the seven-segment displays. The counter variable bit size was incrementally increased until just before a flicker was visible in the displays. This was done to allow the maximum time for the FPGA to perform its logic between each cycle.\nTo control the hexidecimal value of each display, a pair of 4-pin dip switches were used. One pre-soldered onto the development board, and one plugged into the breadboard. A multiplexer was implemented in the SystemVerilog code to switch the control between from one set of switches to the other on each oscillation cycle.\nFinally, the sum of the two digits was computed in SystemVerilog and displayed in binary on five LEDs surface-mounted to the development board."
+  },
+  {
+    "objectID": "labs/lab 2/lab2.html#technical-documentation",
+    "href": "labs/lab 2/lab2.html#technical-documentation",
+    "title": "Lab 2: Multiplexed 7-Segment Display",
+    "section": "Technical Documentation",
+    "text": "Technical Documentation\n\nBlock Diagram\n\n\n\nFigure 1: Block Diagram for Lab 2\n\n\nThe block diagram in Figure 1 illustrates the general architecure of the design. The top-level module contains three sub-level moduels: the high-speed oscillator block (HSOSC), the seven-segment decoder module, and the sum logic module.\n\n\nSchematic\n\n\n\nFigure 2: Schematic for Lab 2\n\n\nThe circuit schematic in Figure 2 displays the physical circuit layout of the design. The cathodes of the seven-segment display are connected to seven FPGA pins through 220 kΩ resistors. The anodes are connected to power through two PNP transistors controlled by the FPGA. A 4-pin dip switch is added, in addition to the one pre-mounted on the development board, to control the second digit of the display. Finally, five surface mounted LEDs are used to display the sum of the two hexidecimal digits in binary."
+  },
+  {
+    "objectID": "labs/lab 2/lab2.html#results-and-discussion",
+    "href": "labs/lab 2/lab2.html#results-and-discussion",
+    "title": "Lab 2: Multiplexed 7-Segment Display",
+    "section": "Results and Discussion",
+    "text": "Results and Discussion\nThe design met all intended objectives. The design would’ve been more solid if the development board had a second pre-soldered 4-pin dip switch, as the one plugged into the breadboard doesn’t fit super well and sometimes causes glitches in the display."
+  },
+  {
+    "objectID": "labs/lab 2/lab2.html#conclusion",
+    "href": "labs/lab 2/lab2.html#conclusion",
+    "title": "Lab 2: Multiplexed 7-Segment Display",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe design sucessfully powered a dual seven-segment display with one set of seven GPIO pins and displayed the sum of the two digits on five LEDs. I spent a total of 15 hours working on this lab."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "E155 Portfolio",

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Untitled – E155 Portfolio</title>
+<title>Lab 2: Multiplexed 7-Segment Display – E155 Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,6 +96,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../lab1.qmd"> 
+<span class="menu-text">Lab 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../lab2.qmd"> 
+<span class="menu-text">Lab 2</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -107,15 +115,29 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#design-and-testing-methodology" id="toc-design-and-testing-methodology" class="nav-link" data-scroll-target="#design-and-testing-methodology">Design and Testing Methodology</a></li>
+  <li><a href="#technical-documentation" id="toc-technical-documentation" class="nav-link" data-scroll-target="#technical-documentation">Technical Documentation</a>
+  <ul class="collapse">
+  <li><a href="#block-diagram" id="toc-block-diagram" class="nav-link" data-scroll-target="#block-diagram">Block Diagram</a></li>
+  <li><a href="#schematic" id="toc-schematic" class="nav-link" data-scroll-target="#schematic">Schematic</a></li>
+  </ul></li>
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and Discussion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Untitled</h1>
+<h1 class="title">Lab 2: Multiplexed 7-Segment Display</h1>
 </div>
 
 
@@ -132,8 +154,49 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In this lab, a design was implemented on the FPGA to create a set of multiplexed seven-segment displays. Two PNP transistors were used to oscillate between the two displays so they could be driven from a single set of GPIO pins.</p>
+</section>
+<section id="design-and-testing-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology</h2>
+<p>In order to oscillate between the two displays, the on-board FPGA high-speed oscillator (HSOSC) was used. Additonaly a counter variable was used to reduce the frequency of the signal to a usable level. This signal was then used to control the base signal of two PNP transistors that each controlled the power to one of the seven-segment displays. The counter variable bit size was incrementally increased until just before a flicker was visible in the displays. This was done to allow the maximum time for the FPGA to perform its logic between each cycle.</p>
+<p>To control the hexidecimal value of each display, a pair of 4-pin dip switches were used. One pre-soldered onto the development board, and one plugged into the breadboard. A multiplexer was implemented in the SystemVerilog code to switch the control between from one set of switches to the other on each oscillation cycle.</p>
+<p>Finally, the sum of the two digits was computed in SystemVerilog and displayed in binary on five LEDs surface-mounted to the development board.</p>
+</section>
+<section id="technical-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="technical-documentation">Technical Documentation</h2>
+<section id="block-diagram" class="level3">
+<h3 class="anchored" data-anchor-id="block-diagram">Block Diagram</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lab2-block_diagram.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 1: Block Diagram for Lab 2</figcaption>
+</figure>
+</div>
+<p>The block diagram in Figure 1 illustrates the general architecure of the design. The top-level module contains three sub-level moduels: the high-speed oscillator block (HSOSC), the seven-segment decoder module, and the sum logic module.</p>
+</section>
+<section id="schematic" class="level3">
+<h3 class="anchored" data-anchor-id="schematic">Schematic</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lab2_schematic.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 2: Schematic for Lab 2</figcaption>
+</figure>
+</div>
+<p>The circuit schematic in Figure 2 displays the physical circuit layout of the design. The cathodes of the seven-segment display are connected to seven FPGA pins through 220 kΩ resistors. The anodes are connected to power through two PNP transistors controlled by the FPGA. A 4-pin dip switch is added, in addition to the one pre-mounted on the development board, to control the second digit of the display. Finally, five surface mounted LEDs are used to display the sum of the two hexidecimal digits in binary.</p>
+</section>
+</section>
+<section id="results-and-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-discussion">Results and Discussion</h2>
+<p>The design met all intended objectives. The design would’ve been more solid if the development board had a second pre-soldered 4-pin dip switch, as the one plugged into the breadboard doesn’t fit super well and sometimes causes glitches in the display.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The design sucessfully powered a dual seven-segment display with one set of seven GPIO pins and displayed the sum of the two digits on five LEDs. I spent a total of 15 hours working on this lab.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
